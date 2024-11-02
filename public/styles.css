@@ -33,15 +33,30 @@ button:hover {
     background-color: #0056b3;
 }
 
-ul {
+/* ul {
     list-style-type: none;
     padding: 0;
-}
+} */
 
-li {
+.items-list > li {
     background: #fff;
     margin: 5px 0;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+
+.items-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    border: 2px solid black;
+    width: 20%;
+    background-color: #e2e2e2; 
+}
+
+/* .item {
+    padding: 10px;
+    margin: 5px 0; 
+    background-color: #e2e2e2; 
+    border-radius: 5px; 
+} */
