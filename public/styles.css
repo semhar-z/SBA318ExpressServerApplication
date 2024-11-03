@@ -1,23 +1,36 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 10px;
     padding: 0;
     background-color: gray;
 }
 
-h1 {
-    color: #333;
+header {
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px; 
+    border-radius: 10px;
 }
 
 form {
     margin-bottom: 20px;
 }
 
-input[type="text"] {
+input, textarea{
     padding: 10px;
     margin-right: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: bisque;
 }
 
 button {
@@ -33,10 +46,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* ul {
-    list-style-type: none;
-    padding: 0;
-} */
 
 .items-list > li {
     background: #fff;
@@ -47,16 +56,10 @@ button:hover {
 }
 
 .items-list {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0;
-    border: 2px solid black;
-    width: 20%;
-    background-color: #e2e2e2; 
+     border: 2px solid black;
 }
 
-/* .item {
-    padding: 10px;
-    margin: 5px 0; 
-    background-color: #e2e2e2; 
-    border-radius: 5px; 
-} */
+.commentsList {
+    border: 2px solid black;
+    margin-bottom: 5px;
+}

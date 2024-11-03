@@ -1,4 +1,3 @@
-// routes/itemsRouter.js
 const express = require('express');
 const { items, addItem } = require('../data/form'); // Import items array and addItem function
 
