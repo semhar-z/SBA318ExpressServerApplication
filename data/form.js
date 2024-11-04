@@ -13,6 +13,6 @@ const addItem = (name, description) => {
     items.push(newItem); 
 };
 
-module.exports = { items, addItem }; // Export items array and addItem function
+module.exports = { items, addItem }; 
 
 

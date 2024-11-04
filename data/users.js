@@ -1,5 +1,3 @@
-// The "users" data will be simple information about
-// the application's user base.
 const users = [
     {
       id: 1,

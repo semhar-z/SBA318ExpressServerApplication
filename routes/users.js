@@ -18,16 +18,18 @@ router
     res.json({ users, links });
   })
   .post((req, res, next) => {
-    if (req.body.name && req.body.username && req.body.email) {
-      if (users.find((u) => u.username == req.body.username)) {
-        next(error(409, "Username Already Taken"));
+    const { name, username, email } = req.body;
+    if (name && username && email) {
+      if (users.find((u) => u.username === username)) {
+        return next(error(409, "Username Already Taken")); 
       }
+
 
       const user = {
         id: users[users.length - 1].id + 1,
-        name: req.body.name,
-        username: req.body.username,
-        email: req.body.email,
+        name,
+        username,
+        email
       };
 
       users.push(user);
@@ -53,32 +55,31 @@ router
       },
     ];
 
-    if (user) res.json({ user, links });
-    else next();
+    if (user) {
+      res.json({ user, links });
+    } else {
+      next(error(404, "User Not Found"));
+    }
   })
+
   .patch((req, res, next) => {
-    const user = users.find((u, i) => {
-      if (u.id == req.params.id) {
-        for (const key in req.body) {
-          users[i][key] = req.body[key];
-        }
-        return true;
-      }
-    });
-
-    if (user) res.json(user);
-    else next();
+    const user = users.find((u) => u.id == req.params.id);
+    if (user) {
+      Object.assign(user, req.body);
+      res.json(user);
+    } else {
+      next(error(404, "User Not Found"));
+    }
   })
-  .delete((req, res, next) => {
-    const user = users.find((u, i) => {
-      if (u.id == req.params.id) {
-        users.splice(i, 1);
-        return true;
-      }
-    });
 
-    if (user) res.json(user);
-    else next();
+.delete((req, res, next) => {
+    const userIndex = users.findIndex((u) => u.id == req.params.id);
+    if (userIndex !== -1) {
+      const [deletedUser] = users.splice(userIndex, 1);
+      res.json(deletedUser);
+    } else {
+      next(error(404, "User Not Found"));
+    }
   });
 
 module.exports = router;

@@ -27,7 +27,7 @@ router
       };
 
       posts.push(post);
-      res.json(posts[posts.length - 1]);
+      res.status(201).json(posts[posts.length - 1]);
     } else next(error(400, "Insufficient Data"));
   });
 
@@ -50,8 +50,9 @@ router
     ];
 
     if (post) res.json({ post, links });
-    else next();
+    else next(error(404, "Post Not Found"));
   })
+
   .patch((req, res, next) => {
     const post = posts.find((p, i) => {
       if (p.id == req.params.id) {
@@ -63,8 +64,9 @@ router
     });
 
     if (post) res.json(post);
-    else next();
+    else next(error(404, "Post Not Found"));
   })
+  
   .delete((req, res, next) => {
     const post = posts.find((p, i) => {
       if (p.id == req.params.id) {

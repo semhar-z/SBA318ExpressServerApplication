@@ -33,7 +33,7 @@ router.post("/", (req, res, next) => {
 
         comments.push(newComment);
         res.redirect('/'); // Redirect back to the main page
-        // res.status(201).json(newComment);
+       
     } else {
         next(error(400, "Insufficient Data"));
     }
@@ -67,7 +67,7 @@ router.delete('/:id', (req, res, next) => {
 
     if (index !== -1) {
         comments.splice(index, 1);
-        return res.redirect('/'); // back to the index page
+        return res.redirect('/');
         console.log(`Deleting comment with ID: ${commentId}`);
 
         return res.status(204).send(); 

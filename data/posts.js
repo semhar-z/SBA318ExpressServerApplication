@@ -1,5 +1,3 @@
-// The "posts" data will include information about
-// social media posts that the users make.
 const posts = [
     {
       id: 1,

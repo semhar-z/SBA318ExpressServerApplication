@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const itemsRouter = require('./routes/itemsRouter.js'); // Import the items router
+const itemsRouter = require('./routes/itemsRouter.js');
 const { items } = require('./data/form.js');
 const users = require("./routes/users");
 const posts = require("./routes/posts");
@@ -38,9 +38,9 @@ app.use("/api/posts", posts);
 app.use("/api/comments", commentsRouter);
 app.use('/api/items', itemsRouter);
 
-// Render the index page with links to users, posts, and comments
+// Render the index page with links to users, posts, comments and items
 app.get('/', (req, res) => {
-    console.log("Comments data type:", Array.isArray(comments) ? "Array" : typeof comments);
+    console.log("Comments data type:", Array.isArray(comments) ? "Array" : typeof comments); 
     console.log("Comments content:", comments);
     res.render('index', { 
         items, 
@@ -49,6 +49,7 @@ app.get('/', (req, res) => {
             { href: '/api/users', rel: 'users', type: 'GET' },
             { href: '/api/posts', rel: 'posts', type: 'GET' },
             { href: '/api/comments', rel: 'comments', type: 'GET' },
+            { href: '/api/items',  rel: 'items', type: 'GET'},
             { href: '/api/images', rel: 'images', type: 'GET'}
         ]
     });

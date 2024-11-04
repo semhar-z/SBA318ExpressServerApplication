@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Route to handle form submissions for adding items
 router.post('/', (req, res) => {
-    const { item, description } = req.body; // Get item and description from form data
+    const { item, description } = req.body; 
     if (!item || !description) {
         return res.status(400).json({ error: "Name and description are required" });
     }

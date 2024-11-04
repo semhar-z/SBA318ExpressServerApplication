@@ -19,7 +19,9 @@
 
 - Setup the Server: in the main index.js
 
-- I created RESTful API Routes: Routes folder created for to hold the routes for    
-   users, posts and comments 
+- I created RESTful API Routes: Routes folder created for to hold the routes for   
+   items, users, posts and comments 
    
 - Views folder created to hold the ejs files: index.ejs to render views
+
+- I installed an extension ReqBin an online API testing tool to test all the request and responses
