@@ -10,13 +10,13 @@ router.post('/', (req, res) => {
         return res.status(400).json({ error: "Name and description are required" });
     }
 
-    addItem(item, description); // Use the addItem function to add a new item
-    res.redirect('/'); // Redirect back to the main page
+    addItem(item, description); 
+    res.redirect('/'); // back to main page
 });
 
 // Route to get all items (for API)
 router.get('/', (req, res) => {
-    res.json(items); // Return items as JSON
+    res.json(items); 
 });
 
 module.exports = router;

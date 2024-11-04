@@ -33,7 +33,7 @@ router.post("/", (req, res, next) => {
 
         comments.push(newComment);
         res.redirect('/'); // Redirect back to the main page
-        res.status(201).json(newComment);
+        // res.status(201).json(newComment);
     } else {
         next(error(400, "Insufficient Data"));
     }
